@@ -43,6 +43,16 @@
 # Copyright 2019 Your name here, unless otherwise noted.
 #
 class devserver {
+  $enhancers = [ 'httpd', 'mariadb', 'mariadb-server', 'php', 'php-cli', 'php-common' ]
+  package { $enhancers: ensure => 'installed' }
 
+  service { 'httpd':
+    ensure => 'running',
+    enable => 'true',
+  }
 
+  service { 'mariadb':
+    ensure => 'running',
+    enable => 'true',
+  }
 }
